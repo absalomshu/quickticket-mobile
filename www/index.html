@@ -67,20 +67,25 @@
 							},
 							success: function(data){ //for each search result, populate the list
 								$.each(data, function(index, element){
-									$('#search-results-list').append("<li class='ui-first-child ui-last-child'><a href='' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><div>"+element.name+"</div><div>"+element.bus_seats+" seater  | "+element.departure_time+" </div><span class='ui-li-aside'><h2>"+element.ticket_price+" frs</h2></span></a></li>");
+									$('#search-results-list').append("<li class='ui-first-child ui-last-child'><a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><div>"+element.name+"</div><div>"+element.bus_seats+" seater  | "+element.departure_time+" </div><span class='ui-li-aside'><h2>"+element.ticket_price+" frs</h2></span></a></li>");
 								});
 								//put the origin and destination as title of the page
 								$('#route').html(from_name+' to '+to_name);
 								
+								var success = 1;
+								
 							},
 							error: function(){
-								alert('error'+this.url);
+								alert('Error: Can\'t connect. Verify your internet connection and try again.');
+								$.mobile.loading("hide"); //hide the ajax spinner
+								exit;
 							}
 						});
-						
+					
+					
 					//go to the search result page
-								$.mobile.changePage('search-results.html',{dataUrl:"search-results.html", data:{'from':'1', 'to':'2', reloadPage:true, changeHash:true}});
-	
+					$.mobile.changePage('search-results.html',{dataUrl:"search-results.html", data:{'from':'1', 'to':'2', reloadPage:false, changeHash:false}});
+					
 								
 					
 					}

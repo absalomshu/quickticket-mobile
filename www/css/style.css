@@ -7,3 +7,8 @@ div.ui-select{background-color:#fff;}
 .ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn:visited, html .ui-bar-a .ui-btn:visited, html .ui-body-a .ui-btn:visited, html body .ui-group-theme-a .ui-btn:visited, html head+body .ui-btn.ui-btn-a:visited {
   background-color: #FFFFFF;
 }
+body, input, select, textarea, button, .ui-btn {
+  font-size: 1.1em;
+  line-height: 1.5;
+  font-family: calibri,sans-serif;
+}
