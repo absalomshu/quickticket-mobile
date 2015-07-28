@@ -7,90 +7,144 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-		
+        
+		<!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/jquery.mobile.datepicker.css">
+		<link rel="stylesheet" href="css/jquery.mobile.datepicker.theme.css">
+		
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/jquery.mobile.datepicker.js"></script>
+		<script src="js/datepicker.js"></script>
+		<script src="js/purl.js"></script><!--to parse urls and variables sent via url -->
+		<script>
+			/*$(document).on('pagebeforeshow', "#home",function(){
+				$(document).on('click', "#search",function(){
+					$.mobile.changePage('search-results.html',{dataUrl:"search-results.html", data:{'from':'1', 'to':'2', reloadPage:true, changeHash:true}});
+				}); 
+				
+			}); */
+			
+			//before showing search results
+			$(document).on('pagebeforeshow', "#search-results",function(){
+				var variables = $(this).data("url").split("?")[1];
+				variable = variables.replace("?","");
+			});
+			
+			//Catch the search form's submit
+			$(document).on('click',"#search", function(){
+				
+				var link = "http://localhost/quickticket/mobile/search_schedule?&departure_time=any&departure_date=28-07-2015";
+				var from = $("#town_from").val();
+				var from_name = $("#town_from option:selected").html();
+				var to = $("#town_to").val();
+				var to_name = $("#town_to option:selected").html();
+				
+				
+				//check origin and destination
+				if(from==to){
+				 alert('Origin and destination can\'t be same.');
+				 return;
+				}else{
+				
+					//Send via ajax
+					$.ajax({url: link,
+							data: {
+								from: from,
+								to: to
+							},
+							dataType:'json',
+							type:'get',
+							async: true,
+							beforeSend: function(){
+								$.mobile.loading("show"); //show the ajax spinner
+							},
+							complete: function(){
+								$.mobile.loading("hide"); //hide the ajax spinner
+							},
+							success: function(data){ //for each search result, populate the list
+								$.each(data, function(index, element){
+									$('#search-results-list').append("<li class='ui-first-child ui-last-child'><a href='' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><div>"+element.name+"</div><div>"+element.bus_seats+" seater  | "+element.departure_time+" </div><span class='ui-li-aside'><h2>"+element.ticket_price+" frs</h2></span></a></li>");
+								});
+								//put the origin and destination as title of the page
+								$('#route').html(from_name+' to '+to_name);
+								
+							},
+							error: function(){
+								alert('error'+this.url);
+							}
+						});
+						
+					//go to the search result page
+								$.mobile.changePage('search-results.html',{dataUrl:"search-results.html", data:{'from':'1', 'to':'2', reloadPage:true, changeHash:true}});
+	
+								
+					
+					}
+				});
+				
+				
+		
+		</script>
 		
 		
-        <title>QuickTicket | </title>
+        <title>QuickTicket | Inter-city travel tickets - Buy and reserve</title>
     </head>
     <body>
       
-            <h1>QuickTicket</h1>
+            
                
 			   <div data-role="page" id="home">
 					<div data-theme="a" data-role="header">
 						
-						<h3>
+						<h1>
 							Search buses
-						</h3>
+						</h1>
 					</div>        
 					<div role="main" class="ui-content">
 						
 						
-						<form>
+						<form data-ajax="false">
 						   
-						    <label for="select-native-s">From:</label>
-						    <select name="select-native-s" id="select-native-s">
-						        <option value="small">Bamenda</option>
-						        <option value="medium">Yaounde</option>
-						        <option value="large">Douala</option>
+						    <label >From:</label>
+						    <select name="town_from" id="town_from" style="background-color:white;">
+						        <option value="1">Buea</option>
+						        <option value="2">Bamenda</option>
+						        <option value="3" selected="selected">Yaounde</option>
+						        <option value="4">Douala</option>
+						        <option value="5">Bafoussam</option>
 						    </select>
 						<br/>
-						<label for="select-native-s">To:</label>
-						    <select name="select-native-s" id="select-native-s">
-						        <option value="small">Bamenda</option>
-						        <option value="medium">Yaounde</option>
-						        <option value="large">Douala</option>
+						<label >To:</label>
+						    <select name="town_to" id="town_to">
+						        <option value="1">Buea</option>
+						        <option value="2">Bamenda</option>
+						        <option value="3">Yaounde</option>
+						        <option value="4" selected="selected">Douala</option>
+						        <option value="5">Bafoussam</option>
 						    </select>
+						<br/>
+						<label >On:</label>
+						<br/>
+						<input type="text" data-role="date">
 						<br/><br/>
-						<a href="#search" class="ui-btn">Search</a>
+						<a  class="ui-btn" data-role='button' id="search">Search</a>
+						<!--<a href="search-results.html?from=1" class="ui-btn" data-role='button'>Search</a>-->
 						   
 						</form>
 					</div>
-					<div data-theme="a" data-role="footer">
-						<h1>Copyright 2013</h1>
-					</div>              
+					<!--<div data-theme="a" data-role="footer">
+						<h1>QuickTicket &copy; 2015</h1>
+					</div>   -->           
 				</div>
 				
 				
 				
 				
 				
-				<!-- SEARCH RESULTS -->
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				<div data-role="page" id="search">
-					<div data-theme="a" data-role="header">
-						<a href="#home" class="ui-btn ui-btn-inline ui-icon-home ui-btn-icon-left">&nbsp; Home</a>
-						<h3>
-							Search results
-						</h3>
-					</div>        
-					<div role="main" class="ui-content">
-							
-						<div class="example-wrapper" data-iscroll>
-							<ul data-role="listview"  >
-								 <li><a href=""><div>Viasso</div><div>CE123 : Yde --> Dla : 8H00 <b>5,000frs</b></div></a></li>
-								 <li><a href=""><div>Garanti</div><div>CE123 : Yde --> Dla : 8H00 <b>4,000frs</b></div></a></li>
-								 <li><a href=""><div>Moghamo</div><div>CE123 : Yde --> Dla : 8H00 <b>9,000frs</b></div></a></li>
-							</ul>
-						</div>
-						
-					</div>
-					<div data-theme="a" data-role="footer">
-						<h1>Copyright 2013</h1>
-					</div>              
-				</div>
+			
 				
          
        
@@ -98,7 +152,7 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/search.js"></script>
         <script type="text/javascript">
-            app.initialize();
+            //app.initialize();
         </script>
     </body>
 </html>
