@@ -7,11 +7,21 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-		
+        
+		<!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/jqm-datebox.core.min.css">
+		<!--<link rel="stylesheet" href="css/jquery.mobile.datepicker.theme.css">
+		<script src="js/jquery.mobile.datepicker.js"></script>
+		<script src="js/datepicker.js"></script>
+		-->
+		
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/jqm-datebox.core.min.js"></script>
+		<script src="js/jqm-datebox.mode.calbox.min.js"></script>
+		<script src="js/jqm-datebox.i18n.js"></script>
 		
 		
         <title>QuickTicket | Inter-city travel tickets - Buy and reserve</title>
@@ -20,46 +30,58 @@
       
             <h1>QuickTicket</h1>
 				<!-- SEARCH RESULTS -->
-				<div data-role="page" id="search-reults">
+				<div data-role="page" id="schedule-details">
 					<div data-theme="a" data-role="header">
-						<a href="#home" class="ui-btn ui-btn-inline ui-icon-home ui-btn-icon-left">&nbsp; Home</a>
-						<h1 id="route">
-							Search results
+					<a href="#" data-rel="back" class="ui-btn-left ui-btn ui-icon-carat-l ui-btn-icon-notext  ui-corner-all" data-role="button" role="button">Back</a>						
+					<h1 id="heading">
+							Purchase information
 						</h1>
 					</div>        
-					<div role="main" class="ui-content">
-							
-						<form>
-							<h3>Contact information</h3>
-						    <div class="ui-field-contain">
-						         <label for="text-12">Name:</label>
-						         <input type="text" name="name" id="text-12" value="">
-						    </div>
-						<div class="ui-field-contain">
-						         <label for="text-12">ID Card number:</label>
-						         <input type="text" name="idc" id="text-12" value="">
-						    </div>
-						<div class="ui-field-contain">
-						         <label for="text-12">Phone:</label>
-						         <input type="number" name="phone" id="text-12" value="">
-						    </div>
-						<div class="ui-field-contain">
-						         <label for="text-12">Email:</label>
-						         <input type="email" name="email" id="text-12" value="">
-						    </div>
-						   
-						<h3>Travel information</h3>
-						<div class="ui-field-contain">
-						         <label for="text-12">Preferred seat number:</label>
-						         <input type="number" name="phone" id="text-12" value="">
-						    </div>
-						<br/>
-						<br/>
-						<br/>
-						<a  class="ui-btn" data-role='button' id="buy-ticket">Buy ticket</a>
-						</form>
-						
+				<div role="main" class="ui-content">
+				<ul data-role="listview">
+				<li class=''><a href='' class='ui-btn'>
+					<div><span id='town-from'>Yde</span> to <span id='town-to'>Dla</span></div>
+					<div><span id="parent-name">Vso</span> <span class='grey'>| <span id="bus-seats">4</span></span> </div>
+					<div><span class='grey' id="departure-date">24jly,215</span> |</span>  <span id="departure-time">8:9AM </span></div>
+					<span class='ui-li-aside'><h2 id="ticket-price">5,k00 frs</h2></span></a></li>
+				</ul>
+			
+				   <div class="ui-body ui-body-a ui-corner-all">
+					<div class="ui-field-contain">
+					<h3>Contact information</h3>
+						 <label for="text-12"><span class='grey'>Name:</span></label>
+					         <input type="text" name="name" id="text-12" value="">
+					    </div><div class="ui-field-contain">
+					         <label for="text-12"><span class='grey'>ID Card number:</span></label>
+					         <input type="text" name="idc" id="text-12" value="">
+					    </div>
+					<div class="ui-field-contain">
+					         <label for="text-12"><span class='grey'>Phone:</span></label>
+					         <input type="number" name="phone" id="text-12" value="">
+					    </div>
+					<div class="ui-field-contain">
+					         <label ><span class='grey'>Email:</span></label>
+					         <input type="email" name="email" id="text-12" value="">
+					    </div>					      
 					</div>
+					<form>
+					
+					</br>
+				<div class="ui-body ui-body-a ui-corner-all">	
+				<div class="ui-field-contain">
+				<h3>Travel information</h3>
+					<div class="ui-field-contain">
+					         <label for="text-12"><span class='grey'>Preferred seat number:</span></label>
+					         <input type="number" name="phone" id="text-12" value="">
+					    </div>
+					<br/>
+					
+					</form>
+				</div>	
+				</div>
+				<br/>
+				<a  class="ui-btn" data-role='button' id="buy-ticket" type="submit">Buy ticket</a>
+				</div>
 					<!--<div data-theme="a" data-role="footer">
 						<h1>QuickTicket &copy; 2015</h1>
 					</div>            
