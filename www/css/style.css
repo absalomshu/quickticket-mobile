@@ -22,3 +22,9 @@ body, input, select, textarea, button, .ui-btn {  font-size: 1.1em;    font-fami
 
 .grey{color:#A7A7A7;}
 
+.header-button-left {
+    position: absolute;
+    margin: 0;
+    top: 10px;
+    bottom: 0.24em;
+}

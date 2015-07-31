@@ -22,7 +22,73 @@
 		<script src="js/jqm-datebox.core.min.js"></script>
 		<script src="js/jqm-datebox.mode.calbox.min.js"></script>
 		<script src="js/jqm-datebox.i18n.js"></script>
-		
+		<script>
+				
+			//WHEN THE TICKET INFORMATION IS SUBMITTTED
+			//Catch the search form's submit
+			$(document).on('click',"#add-purchase", function(){
+				
+				var link = "http://localhost/quickticket/mobile/add_purchase";
+				//var link = "http://dev.quickticket.co/mobile/search_schedule?&departure_time=any";
+				var name = $("#name").val();
+				var idc = $("#idc").val();
+				var phone = $("#phone").val();
+				var email = $("#email").val();
+			
+				//check origin and destination
+				if(!name){
+				 alert('Provide your name, phone and ID card number.');
+				 return;
+				}else{
+				
+					//Send via ajax
+					$.ajax({url: link,
+						data: 
+						{
+							name: name,
+							idc: idc,
+							email: email,
+							phone: phone
+						},
+						
+					
+						type:'get',
+						async: true,
+						beforeSend: function(){
+							$.mobile.loading("show"); //show the ajax spinner
+							
+						},
+						complete: function(){
+							//$.mobile.loading("hide"); //hide the ajax spinner
+						},
+						success: function(data){ 
+						
+						 alert('here');
+						//for each search result, populate the list
+							//if the result is an empty object, no dat was found
+							if (jQuery.isEmptyObject(data))
+							{	$.mobile.loading("hide"); //hide the ajax spinner
+							   $('#search-results-list').append("<li class='ui-last-child'><a href='' class='ui-btn'><div>No schedules available at the moment. <br/>Please try again later.</div></a></li>");
+							}else{
+								$.each(data, function(index, element){
+									$.mobile.loading("hide"); //hide the ajax spinner
+									$('#search-results-list').append("<li class='ui-first-child ui-last-child'><a href='schedule-details.html?bus_seats="+element.bus_seats+"&ticket_price="+element.ticket_price+"&departure_time="+element.departure_time+"&parent_name="+element.parent_name+"&departure_date="+departure_date+"&from="+from+"&to="+to+"&from_name="+from_name+"&to_name="+to_name+"' id='schedule-details' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><div>"+element.parent_name+"</div><div><span class='grey'>"+element.bus_seats+" seater </span> | "+element.departure_time+" </div><span class='ui-li-aside'><h2>"+element.ticket_price+" frs</h2></span></a></li>");
+								});
+							}
+							//put the origin and destination as title of the page
+							$('#route').html(from_name+' to '+to_name);
+						},
+						error: function(){ //If there's an error
+						alert(this.url);
+							alert('Error: Can\'t connect. Verify your internet connection and try again.');
+							$.mobile.loading("hide"); //hide the ajax spinner
+							exit;
+						}
+					});
+							}
+			});
+					
+		</script>
 		
         <title>QuickTicket | Inter-city travel tickets - Buy and reserve</title>
     </head>
@@ -50,18 +116,18 @@
 					<div class="ui-field-contain">
 					<h3>Contact information</h3>
 						 <label for="text-12"><span class='grey'>Name:</span></label>
-					         <input type="text" name="name" id="text-12" value="">
+					         <input type="text" name="name" id="name" value="">
 					    </div><div class="ui-field-contain">
 					         <label for="text-12"><span class='grey'>ID Card number:</span></label>
-					         <input type="text" name="idc" id="text-12" value="">
+					         <input type="text" name="idc" id="idc" value="">
 					    </div>
 					<div class="ui-field-contain">
 					         <label for="text-12"><span class='grey'>Phone:</span></label>
-					         <input type="number" name="phone" id="text-12" value="">
+					         <input type="number" name="phone" id="phone" value="">
 					    </div>
 					<div class="ui-field-contain">
 					         <label ><span class='grey'>Email:</span></label>
-					         <input type="email" name="email" id="text-12" value="">
+					         <input type="email" name="email" id="email" value="">
 					    </div>					      
 					</div>
 					<form>
@@ -80,7 +146,7 @@
 				</div>	
 				</div>
 				<br/>
-				<a  class="ui-btn" data-role='button' id="buy-ticket" type="submit">Buy ticket</a>
+				<a  class="ui-btn" data-role='button' id="add-purchase" type="submit">Buy ticket</a>
 				</div>
 					<!--<div data-theme="a" data-role="footer">
 						<h1>QuickTicket &copy; 2015</h1>
