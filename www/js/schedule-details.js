@@ -13,10 +13,10 @@
 				var agency_id = $("#agency_id").val();
 				var schedule_id = $("#schedule_id").val();
 				//check origin and destination
-				if(!name){
-				 alert('Provide your contact information and passenger\'s phone and ID card number.');
-				 return;
-				}else{
+				if(!name){ alert('Enter passenger\'s name.'); return;}
+				else if(!idc){ alert('Enter passenger\'s ID card number'); return;}
+				else if(!phone){ alert('Enter contact phone number'); return;}
+				else{
 				
 					//Send via ajax
 					$.ajax({url: link,

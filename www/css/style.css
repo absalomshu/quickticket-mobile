@@ -2,7 +2,7 @@
 
 h1{	font-weight:normal;line-height:2em;}
 h2, .ui-listview>li h2{color:#3299bb; font-size:1.1em;}
-h3{       border-bottom: 1px solid #ddd; font-weight:normal;    margin: 0 0 .7375em;}
+h3{ border-bottom: 1px solid #ddd; font-weight:normal;margin: 0 0 .7375em; font-size:1.1em;padding-bottom: .2em;}
 
 .footer{    font-size: .7em;border-color:#ddd;    padding: .0em 0;}
 a#search, a#buy-ticket, a#add-purchase{  color: #ffffff;  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);  background-color: #3299bb; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);}
@@ -12,23 +12,30 @@ div.ui-select{background-color:#fff;}
 .ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn:visited, html .ui-bar-a .ui-btn:visited, html .ui-body-a .ui-btn:visited, html body .ui-group-theme-a .ui-btn:visited, html head+body .ui-btn.ui-btn-a:visited {
   background-color: #FFFFFF;
 }
-body, input, select, textarea, button, .ui-btn {  font-size: 1.1em; font-family:'Open Sans', calibri, sans-serif; }
+body, input, select, textarea, button, .ui-btn {  font-size: 1.1em; font-family:'Open Sans', calibri, sans-serif;  }
+/*Make buttons blue*/
+[class*=ui-block-]>button.ui-btn {background-color: #3299bb; color:white;font-weight:normal;text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);} 
 /* Prvent all buttons and li's from being bold*/
 .ui-page-theme-a a, html .ui-bar-a a, html .ui-body-a a, html body .ui-group-theme-a a {    font-weight:normal;}
 
 .ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit { background-color:#3299bb;   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);}
 
 /*Bigger header*/
-
+}
+.ui-page-theme-a .ui-btn:hover, html .ui-bar-a .ui-btn:hover, html .ui-body-a .ui-btn:hover, html body .ui-group-theme-a .ui-btn:hover, html head+body .ui-btn.ui-btn-a:hover {
+    background-color: white;    border-color: #ddd;    color: #333;    text-shadow: 0 1px 0 #f3f3f3;}
 .grey{color:#A7A7A7;}
+
+/*Make labels bigger*/
+.ui-mobile label, div.ui-controlgroup-label {    font-size: 1.1em;}
 
 /*Without this, the third block is vertically displaced*/
 .ui-block-c{margin-top:-23px;}
-
-.header-button-left {
-    position: absolute;
-    margin: 0;
-    top: 10px;
-    bottom: 0.24em;
+/*Prevent vertical displacement of form labels and their corresponding inputs
+*/
+.ui-field-contain>label, .ui-field-contain .ui-controlgroup-label, .ui-field-contain>.ui-rangeslider>label {
+    margin: 2.5% 2% 0 0;
 }
+
+.header-button-left {    position: absolute;    margin: 0;    top: 10px;    bottom: 0.24em;}
 .my-btn{  color: #ffffff;  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);  background-color: #3299bb; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);}
