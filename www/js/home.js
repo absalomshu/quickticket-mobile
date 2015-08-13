@@ -76,16 +76,28 @@ $(document).on('click',"#search", function(){
 						$('#search-results-list').html("");
 						//iterate through result set and populate the list with search results
 						$.each(data, function(index, element){
-							$('#search-results-list').append("<li class='ui-first-child ui-last-child'><a href='schedule-details.html?bus_seats="+element.bus_seats+"&ticket_price="+element.ticket_price+"&departure_time="+element.departure_time+"&parent_name="+element.parent_name+"&departure_date="+departure_date+"&from="+from+"&to="+to+"&from_name="+from_name+"&to_name="+to_name+"&agency_id="+element.agency_id+"&schedule_id="+element.schedule_id+"' id='schedule-details' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><div>"+element.parent_name+"</div><div><span class='grey'>"+element.bus_seats+" seater </span> | "+element.departure_time+" </div><span class='ui-li-aside'><h2>"+element.ticket_price+" frs</h2></span></a></li>");
+							$('#search-results-list').append("<li class='ui-first-child ui-last-child'><a href='schedule-details.html?bus_seats="+element.bus_seats+"&ticket_price="+element.ticket_price+"&departure_time="+element.departure_time+"&parent_name="+element.parent_name+"&departure_date="+departure_date+"&from="+from+"&to="+to+"&from_name="+from_name+"&to_name="+to_name+"&agency_id="+element.agency_id+"&schedule_id="+element.schedule_id+"' id='schedule-details' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><div>"+element.parent_name+"</div><div>"+element.departure_time+"</div><div><span class='grey medium-text'>"+element.bus_seats+" seater </span> </div><span class='ui-li-aside'><h2>"+element.ticket_price+" frs</h2></span></a></li>");
 						});
+						//put the origin and destination as title of the page, and date as subtitle
+						$('#page-title').html(from_name+' to '+to_name);
+						
+						//format the date
+						myDateParts = departure_date.split("-");
+						myNewDate = new Date(myDateParts[2], myDateParts[1], myDateParts[0]);
+						friendly_date = new Date( departure_date.replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3") );
+						var options = { weekday: "long", year: "numeric", month: "long",  day: "numeric" }
+						
+						$('#page-subtitle').html(friendly_date.toLocaleDateString ("en-US", options));
+						
+						
 					});
 					//hide the ajax spinner
 					$.mobile.loading("hide");
 					//show search results page
 					$.mobile.changePage('search-results.html');
 				}
-				//put the origin and destination as title of the page
-				$('#route').html(from_name+' to '+to_name);
+				
+				
 			},
 			error: function(){ //If there's an error
 			//alert(this.url);

@@ -26,15 +26,18 @@ body, input, select, textarea, button, .ui-btn {  font-size: 1.1em; font-family:
     background-color: white;    border-color: #ddd;    color: #333;    text-shadow: 0 1px 0 #f3f3f3;}
 .grey{color:#A7A7A7;}
 
-
+.medium-text{font-size:0.9em;}
 
 /*Without this, the third block is vertically displaced*/
 .ui-block-c{margin-top:-23px;}
 /*Prevent vertical displacement of form labels and their corresponding inputs
 */
-.ui-field-contain>label, .ui-field-contain .ui-controlgroup-label, .ui-field-contain>.ui-rangeslider>label {
-    margin: 5% 2% 0 0;
-}
+.ui-field-contain>label, .ui-field-contain .ui-controlgroup-label, .ui-field-contain>.ui-rangeslider>label {    margin: 5% 2% 0 0;}
+#page-subtitle{    font-weight: normal;
+    text-align: center;
+    margin-top: -1.8em;
+    padding: 0.2em;
+    font-size: 0.7em;}
 
 .header-button-left {    position: absolute;    margin: 0;    top: 10px;    bottom: 0.24em;}
 .my-btn{  color: #ffffff;  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);  background-color: #3299bb; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);}
