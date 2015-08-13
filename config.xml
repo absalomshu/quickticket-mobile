@@ -2,7 +2,7 @@
   <name>QuickTicket</name>
   <description>Inter-town bus ticket purchase and reservations.</description>
   <author href="http://quickticket.co" email="info@quickticket.co">QuickTicket Team - Absalom Shu</author>
-  <content src="home.html"/>
+  <content src="index.html"/>
   <preference name="permissions" value="none"/>
   <preference name="orientation" value="default"/>
   <preference name="target-device" value="universal"/>
