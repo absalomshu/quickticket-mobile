@@ -88,7 +88,7 @@ $(document).on('click',"#search", function(){
 				$('#route').html(from_name+' to '+to_name);
 			},
 			error: function(){ //If there's an error
-			alert(this.url);
+			//alert(this.url);
 				alert('Error: Can\'t connect. Verify your internet connection and try again.');
 				$.mobile.loading("hide"); //hide the ajax spinner
 				return;
