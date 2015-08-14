@@ -5,7 +5,7 @@ h2, .ui-listview>li h2{color:#3299bb; font-size:1.1em;}
 h3{ border-bottom: 1px solid #ddd; font-weight:normal;margin: 0 0 .7375em; font-size:1.1em;padding-bottom: .2em;}
 
 .ui-header .ui-title{    font-size: 1.1em;}
-
+.ui-footer .ui-title{color:#A7A7A7;}
 .footer{    font-size: .7em;border-color:#ddd;    padding: .0em 0;}
 a#search, a#buy-ticket, a#add-purchase{  color: #ffffff;  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);  background-color: #3299bb; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);}
 a#details{ color: #ffffff;  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);  background-color: #3299bb; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); }
