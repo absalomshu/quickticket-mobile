@@ -24,7 +24,7 @@ $(document).ready(function(){
 $(document).on('click',"#search", function(){
 	
 	var link = "http://localhost/quickticket/mobile/search_schedule?departure_time=any";
-	var link = "http://dev.quickticket.co/mobile/search_schedule?&departure_time=any";
+	//var link = "http://dev.quickticket.co/mobile/search_schedule?&departure_time=any";
 	var from = $("#town_from").val();
 	var from_name = $("#town_from option:selected").html();
 	var to = $("#town_to").val();
