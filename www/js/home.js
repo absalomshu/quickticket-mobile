@@ -1,5 +1,6 @@
 //LOAD THE DATEPICKER ONCE THE PAGE LOADS
 
+
 $(document).ready(function(){
 
 	//Get the date/time of today

@@ -1,6 +1,6 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="co.quickticket.dev" version="1.0.0">
   <name>QuickTicket</name>
-  <description>Inter-town bus ticket purchase and reservations.</description>
+  <description>Buy and reserve bus tickets online.</description>
   <author href="http://quickticket.co" email="info@quickticket.co">QuickTicket Team - Absalom Shu</author>
   <content src="index.html"/>
   <preference name="permissions" value="none"/>
@@ -18,6 +18,8 @@
   <preference name="disable-cursor" value="false"/>
   <preference name="android-minSdkVersion" value="7"/>
   <preference name="android-installLocation" value="auto"/>
+<preference name="SplashScreenDelay" value="3000" />
+<preference name="SplashScreen" value="screen"/>
   <gap:plugin name="org.apache.cordova.battery-status"/>
   <gap:plugin name="org.apache.cordova.camera"/>
   <gap:plugin name="org.apache.cordova.media-capture"/>
