@@ -5,7 +5,7 @@
 			$(document).on('click',"#reserve-seat", function(){
 								
 				var link = "http://localhost/quickticket/mobile/reserve_seat";
-				//var link = "http://dev.quickticket.co/mobile/reserve_seat";
+				var link = "http://dev.quickticket.co/mobile/reserve_seat";
 				var name = $("#name").val();
 				var idc = $("#idc").val();
 				var phone = $("#phone").val();
