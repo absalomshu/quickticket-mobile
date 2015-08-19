@@ -14,6 +14,7 @@
 					var to_name = getURLParameterByName('to_name',url);
 					var schedule_id = getURLParameterByName('schedule_id',url);
 					var agency_id = getURLParameterByName('agency_id',url);
+					var vip = getURLParameterByName('vip',url);
 					 
 					//alert(bus_seats+ticket_price+departure_time+parent_name+departure_date+from+to+from_name+to_name);
 					
@@ -29,6 +30,9 @@
 						$('#parent-name').html(parent_name);	
 						$('#agency_id').val(agency_id);	
 						$('#schedule_id').val(schedule_id);	
+						//for some reason, this value changes many times before eventually picking the right value. Hence use the next 2 lines to ensure
+						if(vip=='1'){$('#vip').html("VIP");	}
+						if(vip=='0'){$('#vip').html(" ");	}
 					});
 										
 				});

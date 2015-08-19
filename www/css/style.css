@@ -1,19 +1,22 @@
-/*Blue: 3299bb Green: 5bb75b */
+/*Blue: 3299bb Green: 5bb75b Orange: #f89406*/
 
 h1{	font-weight:normal;line-height:1.8em;color:white;}
-h2, .ui-listview>li h2{color:#3299bb; font-size:1.1em;}
+h2, .ui-listview>li h2{color:#3299bb; font-size:1.1em;    margin: .45em 0 0 0;}
 h3{ border-bottom: 1px solid #ddd; font-weight:normal;margin: 0 0 .7375em; font-size:1.1em;padding-bottom: .2em;}
 
 .ui-header .ui-title{    font-size: 1.1em;}
 .ui-footer .ui-title{color:#A7A7A7;}
 .footer{    font-size: .7em;border-color:#ddd;    padding: .0em 0;}
-a#search, a#buy-ticket, a#add-purchase{  color: #ffffff;  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);  background-color: #3299bb; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);}
+a#search, a#buy-ticket, a#add-purchase, a#back-home{  color: #ffffff;  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);  background-color: #3299bb; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);}
 a#details{ color: #ffffff;  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);  background-color: #3299bb; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); }
+.orange{color:#f89406;}
+.li-subtext{    line-height: 0.5em;}
 
 div.ui-select{background-color:#fff;}
 .ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn:visited, html .ui-bar-a .ui-btn:visited, html .ui-body-a .ui-btn:visited, html body .ui-group-theme-a .ui-btn:visited, html head+body .ui-btn.ui-btn-a:visited {
   background-color: #FFFFFF;
 }
+ 
 body, input, select, textarea, button, .ui-btn {  font-size: 1.1em; font-family:'Open Sans', calibri, sans-serif;  }
 /*Make buttons blue*/
 [class*=ui-block-]>button.ui-btn {background-color: #3299bb; color:white;font-weight:normal;text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);} 
@@ -28,7 +31,7 @@ body, input, select, textarea, button, .ui-btn {  font-size: 1.1em; font-family:
     background-color: white;    border-color: #ddd;    color: #333;    text-shadow: 0 1px 0 #f3f3f3;}
 .grey{color:#A7A7A7;}
 
-.medium-text{font-size:0.9em;}
+.medium-text{font-size:0.85em;}
 
 /*Without this, the third block is vertically displaced*/
 .ui-block-c{margin-top:-23px;}

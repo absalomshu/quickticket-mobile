@@ -5,17 +5,20 @@
 			$(document).on('click',"#reserve-seat", function(){
 								
 				var link = "http://localhost/quickticket/mobile/reserve_seat";
-				var link = "http://dev.quickticket.co/mobile/reserve_seat";
+				//var link = "http://dev.quickticket.co/mobile/reserve_seat";
 				var name = $("#name").val();
 				var idc = $("#idc").val();
 				var phone = $("#phone").val();
 				var email = $("#email").val();
 				var agency_id = $("#agency_id").val();
 				var schedule_id = $("#schedule_id").val();
-				//check origin and destination
+
+
 				if(!name){ alert('Enter passenger\'s name.'); return;}
 				else if(!idc){ alert('Enter passenger\'s ID card number'); return;}
 				else if(!phone){ alert('Enter contact phone number'); return;}
+				else if(!$.isNumeric( phone )){ alert('Enter valid phone number'); return;}
+				else if(!$.isNumeric( idc )){ alert('Enter valid ID card number'); return;}
 				else{
 				
 					//Send via ajax
@@ -41,7 +44,7 @@
 							//$.mobile.loading("hide"); //hide the ajax spinner
 						},
 						success: function(data){ 
-							$.mobile.changePage('complete.html',{data:{reloadPage:false, changeHash:false, transition: "slideup"}});
+							$.mobile.changePage('complete.html',{data:{reloadPage:false}});
 						},
 						
 						error: function(){ //If there's an error

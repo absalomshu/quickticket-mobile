@@ -4109,7 +4109,7 @@ textarea.ui-input-text {
 	min-height: 2.2em;
 	text-align: left; /* Opera aligns type="date" right by default */
 	border: 0;
-	background: transparent none;
+	#background: transparent none;
 	-webkit-appearance: none;
 	-webkit-border-radius: inherit;
 	border-radius: inherit;
