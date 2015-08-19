@@ -44,7 +44,7 @@
 							//$.mobile.loading("hide"); //hide the ajax spinner
 						},
 						success: function(data){ 
-							$.mobile.changePage('complete.html',{data:{reloadPage:false}});
+							$.mobile.changePage('complete.html',{data:{reloadPage:false, changeHash:false, transition: "slideup"}});
 						},
 						
 						error: function(){ //If there's an error
