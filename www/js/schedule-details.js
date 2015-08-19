@@ -44,7 +44,13 @@
 							//$.mobile.loading("hide"); //hide the ajax spinner
 						},
 						success: function(data){ 
+						//wait 2 mins before showing page. coz if it loads fast, once you click to go home, it re-submits
+							setTimeout(function()
+							{
 							$.mobile.changePage('complete.html',{data:{reloadPage:false, changeHash:false, transition: "slideup"}});
+							}, 2000);
+						
+							
 						},
 						
 						error: function(){ //If there's an error
