@@ -36,8 +36,8 @@ var app = {
         app.receivedEvent('deviceready');
 		
 		//navigator.splashscreen.hide();
-		$.mobile.changePage( "home.html", { transition: "pop", changeHash: false });
-		//window.location = "home.html";
+		//$.mobile.changePage( "home.html", { transition: "pop", changeHash: false });
+		window.location = "home.html";
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
