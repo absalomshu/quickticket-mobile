@@ -7,7 +7,7 @@ h3{ border-bottom: 1px solid #ddd; font-weight:normal;margin: 0 0 .7375em; font-
 .ui-header .ui-title{    font-size: 1.2em;}
 .ui-footer .ui-title{color:#A7A7A7;}
 .footer{    font-size: .7em;border-color:#ddd;    padding: .0em 0;}
-a#search, a#buy-ticket, a#add-purchase, a#back-home{  color: #ffffff;  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);  background-color: #3299bb; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); font-size:1.0em;}
+a#search, a#buy-ticket, a#add-purchase, a#back-home{  color: #ffffff;  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);  background-color: #3299bb; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); font-size:1.1em;}
 a#details{ color: #ffffff;  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);  background-color: #3299bb; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); }
 .orange{color:#f89406;}
 .li-subtext{  }
