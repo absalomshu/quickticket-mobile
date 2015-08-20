@@ -17,7 +17,11 @@ $(document).ready(function(){
 })
 
 
+   document.addEventListener("deviceready", onDeviceReady, false);
 
+    setTimeout(function() {
+    navigator.splashscreen.hide();
+   }, 1000);
 
 //WHEN THE SEARCH BUTTON IS CLICKED
 //Catch the search form's submit
