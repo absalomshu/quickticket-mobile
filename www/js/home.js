@@ -91,10 +91,10 @@ $(document).on('click',"#search", function(){
 							if(element.vip==1){ is_vip="<div class='medium-text orange li-subtext'>VIP</div>";}
 							if(element.vip==1){ vip=1;}
 							
-							$('#search-results-list').append("<li class='ui-first-child ui-last-child schedule-list-item'><a href='schedule-details.html?bus_seats="+element.bus_seats+"&ticket_price="+element.ticket_price+"&departure_time="+element.departure_time+"&parent_name="+element.parent_name+"&departure_date="+departure_date+"&from="+from+"&to="+to+"&from_name="+from_name+"&to_name="+to_name+"&agency_id="+element.agency_id+"&schedule_id="+element.schedule_id+"&vip="+vip+"' id='schedule-details' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><div>"+element.parent_name+"</div><div>"+element.departure_time+"</div><div><span class='grey medium-text'>"+element.bus_seats+" seater </span> </div><span class='ui-li-aside'><h2>"+element.ticket_price+" frs</h2>"+is_vip+"</span></a></li>");
-							//$('#search-results-list').append("<li class='ui-first-child ui-last-child schedule-list-item'><a href='#' id='' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><div>"+element.parent_name+"</div><div>"+element.departure_time+"</div><div><span class='grey medium-text'>"+element.bus_seats+" seater </span> </div><span class='ui-li-aside'><h2>"+element.ticket_price+" frs</h2>"+is_vip+"</span></a></li>");
+							//$('#search-results-list').append("<li class='ui-first-child ui-last-child schedule-list-item'><a href='schedule-details.html?bus_seats="+element.bus_seats+"&ticket_price="+element.ticket_price+"&departure_time="+element.departure_time+"&parent_name="+element.parent_name+"&departure_date="+departure_date+"&from="+from+"&to="+to+"&from_name="+from_name+"&to_name="+to_name+"&agency_id="+element.agency_id+"&schedule_id="+element.schedule_id+"&vip="+vip+"' id='schedule-details' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><div>"+element.parent_name+"</div><div>"+element.departure_time+"</div><div><span class='grey medium-text'>"+element.bus_seats+" seater </span> </div><span class='ui-li-aside'><h2>"+element.ticket_price+" frs</h2>"+is_vip+"</span></a></li>");
+							$('#search-results-list').append("<li class='ui-first-child ui-last-child schedule-list-item'><a href='#' id='' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><div>"+element.parent_name+"</div><div>"+element.departure_time+"</div><div><span class='grey medium-text'>"+element.bus_seats+" seater </span> </div><span class='ui-li-aside'><h2>"+element.ticket_price+" frs</h2>"+is_vip+"</span></a></li>");
 							//add the form elements corresponding to that schedule
-							//$('#search-results-list').append("<form id='search-results-form'><input type='hidden' name='bus_seats' value="+element.bus_seats+"><input type='hidden' name='ticket_price' value="+element.ticket_price+"><input type='hidden' name='departure_time' value="+element.departure_time+"><input type='hidden' name='parent_name' value="+element.parent_name+"><input type='hidden' name='departure_date' value="+departure_date+"><input type='hidden' name='from' value="+from+"><input type='hidden' name='to' value="+to+"><input type='hidden' name='from_name' value="+from_name+"><input type='hidden' name='to_name' value="+to_name+"><input type='hidden' name='agency_id' value="+element.agency_id+"><input type='hidden' name='schedule_id' value="+element.schedule_id+"><input type='hidden' name='vip' value="+vip+">");
+							$('#search-results-list').append("<form id='search-results-form'><input type='hidden' name='bus_seats' value="+element.bus_seats+"><input type='hidden' name='ticket_price' value="+element.ticket_price+"><input type='hidden' name='departure_time' value="+element.departure_time+"><input type='hidden' name='parent_name' value="+element.parent_name+"><input type='hidden' name='departure_date' value="+departure_date+"><input type='hidden' name='from' value="+from+"><input type='hidden' name='to' value="+to+"><input type='hidden' name='from_name' value="+from_name+"><input type='hidden' name='to_name' value="+to_name+"><input type='hidden' name='agency_id' value="+element.agency_id+"><input type='hidden' name='schedule_id' value="+element.schedule_id+"><input type='hidden' name='vip' value="+vip+">");
 						
 							
 							
@@ -129,13 +129,13 @@ $(document).on('click',"#search", function(){
 		}
 });
 
-/*
+
 $(document).on('click',".schedule-list-item", function(){
 	//alert($("form#search-results-form").serialize());
-	//$.mobile.changePage( "schedule-details.html?"+$("form#search-results-form").serialize(), {
+	$.mobile.changePage( "schedule-details.html?"+$("form#search-results-form").serialize(), {
 		//type: "post",
 		//data: $("form#search").serialize()
 	//	reloadPage:true
-	//});
+	});
 	
-}); */
+}); 
