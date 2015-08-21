@@ -55,12 +55,11 @@ $(document).on('click',"#search", function(){
 			success: function(data){ //for each search result, populate the list
 			
 				//format the date
-						myDateParts = departure_date.split("-");
-						myNewDate = new Date(myDateParts[2], myDateParts[1], myDateParts[0]);
-						friendly_date = new Date( departure_date.replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3") );
-						var options = { weekday: "long", year: "numeric", month: "long",  day: "numeric" }
-						
-						
+				myDateParts = departure_date.split("-");
+				myNewDate = new Date(myDateParts[2], myDateParts[1], myDateParts[0]);
+				friendly_date = new Date( departure_date.replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3") );
+				var options = { weekday: "long", year: "numeric", month: "long",  day: "numeric" }
+				
 						
 				//if the result is an empty object, no dat was found
 				if (jQuery.isEmptyObject(data))
@@ -76,7 +75,6 @@ $(document).on('click',"#search", function(){
 					$.mobile.loading("hide");
 					//show search results page
 					$.mobile.changePage('search-results.html');
-					
 				}else{
 				
 					//before showing search results
@@ -91,8 +89,6 @@ $(document).on('click',"#search", function(){
 							if(element.vip==1){ is_vip="<div class='medium-text orange li-subtext'>VIP</div>";}
 							if(element.vip==1){ vip=1;}
 							
-							
-							
 							//$('#search-results-list').append("<li class='ui-first-child ui-last-child schedule-list-item'><a rel='external' href='schedule-details.html?bus_seats="+element.bus_seats+"&ticket_price="+element.ticket_price+"&departure_time="+element.departure_time+"&parent_name="+element.parent_name+"&departure_date="+departure_date+"&from="+from+"&to="+to+"&from_name="+from_name+"&to_name="+to_name+"&agency_id="+element.agency_id+"&schedule_id="+element.schedule_id+"&vip="+vip+"' id='schedule-details' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><div>"+element.parent_name+"</div><div>"+element.departure_time+"</div><div><span class='grey medium-text'>"+element.bus_seats+" seater </span> </div><span class='ui-li-aside'><h2>"+element.ticket_price+" frs</h2>"+is_vip+"</span></a></li>");
 							
 							//we do this through a post and an onclick function because some (unorignal) android phones crash when long links are passed.
@@ -100,15 +96,11 @@ $(document).on('click',"#search", function(){
 							$('#search-results-list').append("<li class='ui-first-child ui-last-child schedule-list-item'><a href='#' onClick='select_schedule("+element.schedule_id+");' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><div>"+element.parent_name+"</div><div>"+element.departure_time+"</div><div><span class='grey medium-text'>"+element.bus_seats+" seater </span> </div><span class='ui-li-aside'><h2>"+element.ticket_price+" frs</h2>"+is_vip+"</span></a></li>");
 							$('#search-results-list').append("</form>");
 							//add the form elements corresponding to that schedule
-						
-							
 							
 							$('#page-subtitle').html(friendly_date.toLocaleDateString ("en-US", options));
 						});
 						//put the origin and destination as title of the page, and date as subtitle
 						$('#page-title').html(from_name+' to '+to_name);
-						
-					
 						
 					});
 					//hide the ajax spinner
@@ -120,33 +112,20 @@ $(document).on('click',"#search", function(){
 			},
 			error: function(){ //If there's an error
 			//alert(this.url);
-				alert('Error: Can\'t connect. Verify your internet connection and try again.');
+				alert('Can\'t connect. Verify your internet connection and try again.');
 				$.mobile.loading("hide"); //hide the ajax spinner
 				return;
 			}
 			});
 			
-			//go to the search result page
 			
 		}
 });
 
+//Depending on the schedule selected, load the schedule details page
 function select_schedule(schedule_id){
 	
 	//select all items in the form, serialize and send in the url to the schedule details page
-	$.mobile.changePage( "schedule-details.html?"+$("form#search-results-form-"+schedule_id).serialize(), {
-		
-	});
+	$.mobile.changePage( "schedule-details.html?"+$("form#search-results-form-"+schedule_id).serialize(), {	});
 	
 };
-/*
-$(document).on('click',".schedule-list-item", function(){
-	
-	
-	
-	//var inputValue =  form.find('input[name="schedule_id"]').val();
-	//alert(inputValue);
-	//alert($(".search-results-form :input[name='schedule_id']").val());
-	
-	
-}); */
