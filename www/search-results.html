@@ -34,15 +34,23 @@
 					<div role="main" class="ui-content">
 							
 						<div class="example-wrapper" data-iscroll>
+							
 							<ul data-role="listview" id="search-results-list" >
 								<!--search result list enters here-->
 							</ul>
+							
 						</div>
 						<!--sample for formatiing
 						<div class="example-wrapper" data-iscroll>
 						<br/>
 							<ul data-role="listview" >
 								<li class='ui-first-child ui-last-child'><a href='' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><div>Garanti</div><div>50 seater  8:00AM </div><div>50 seater  8:00AM </div><span class="ui-li-aside"><h1>5,000 frs</h1><span class="medium-text grey">dd</span></span></a></li>
+								<li class='ui-first-child ui-last-child' class="ind-schedule"><a href='schedule-details.html?bus_seats="+element.bus_seats+"&ticket_price="+element.ticket_price+"&departure_time="+element.departure_time+"&parent_name="+element.parent_name+"&departure_date="+departure_date+"&from="+from+"&to="+to+"&from_name="+from_name+"&to_name="+to_name+"&agency_id="+element.agency_id+"&schedule_id="+element.schedule_id+"&vip="+vip+"' id='schedule-details' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><div>"+element.parent_name+"</div><div>"+element.departure_time+"</div><div><span class='grey medium-text'>"+element.bus_seats+" seater </span> </div><span class='ui-li-aside'><h2>"+element.ticket_price+" frs</h2>"+is_vip+"</span></a></li>
+								<form>
+									<input type="hidden" name="bus_seats">
+									<input type="hidden" name="ticket_price">
+								</form>
+							
 							</ul>
 						</div>-->
 						

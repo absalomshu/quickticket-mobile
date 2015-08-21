@@ -1,42 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-$(document).on('pagebeforeshow', "#schedule-details",function () {
-//alert($(this).data("url"));
-			//var parameters = $(this).data("url").split("?")[1];;
-          //  parameter = parameters.replace("parameter=","");  
-           //alert('HERE');
-			var search = location.search.substring(1);
-			//parse the uri into an object
-			var schedule=JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}')
-			
-			$('#town-from').html(schedule.from_name);		
-			$('#town-to').html(schedule.to_name);
-			$('#bus-seats').html(schedule.bus_seats+ " seater");		
-			$('#ticket-price').html(schedule.ticket_price+" frs");		
-			$('#departure-date').html(schedule.departure_date);		
-			$('#departure-time').html(schedule.departure_time);		
-			$('#parent-name').html(schedule.parent_name);	
-			$('#agency_id').val(schedule.agency_id);	
-			$('#schedule_id').val(schedule.schedule_id);	
-			//for some reason, this value changes many times before eventually picking the right value. Hence use the next 2 lines to ensure
-			if(schedule.vip=='1'){$('#vip').html("VIP");	}
-			if(schedule.vip=='0'){$('#vip').html(" ");	}
-			
-			
-
-});
-
-
 //WHEN THE TICKET INFORMATION IS SUBMITTTED
 			//Catch the search form's submit
 			//WHEN THE TICKET INFORMATION IS SUBMITTTED
@@ -44,7 +5,7 @@ $(document).on('pagebeforeshow', "#schedule-details",function () {
 			$(document).on('click',"#reserve-seat", function(){
 								
 				var link = "http://localhost/quickticket/mobile/reserve_seat";
-				//var link = "http://dev.quickticket.co/mobile/reserve_seat";
+				var link = "http://dev.quickticket.co/mobile/reserve_seat";
 				var name = $("#name").val();
 				var idc = $("#idc").val();
 				var phone = $("#phone").val();

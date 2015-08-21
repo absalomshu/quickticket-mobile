@@ -1,7 +1,7 @@
 //WHEN A PARTICULAR SCHEDULE IS SELECTED FROM SEARCH RESULTS
-				$(document).on('click',"#schedule-detailss", function(){
+				$(document).on('click',"#schedule-details", function(){
 				
-					/*Get the full url of the link that was clicked and pass to the function to get the variables
+					//Get the full url of the link that was clicked and pass to the function to get the variables
 					url = this.href;
 					var bus_seats = getURLParameterByName('bus_seats',url);
 					var ticket_price = getURLParameterByName('ticket_price',url);
@@ -16,16 +16,11 @@
 					var agency_id = getURLParameterByName('agency_id',url);
 					var vip = getURLParameterByName('vip',url);
 					 
-					//alert(bus_seats+ticket_price+departure_time+parent_name+departure_date+from+to+from_name+to_name); */
+					//alert(bus_seats+ticket_price+departure_time+parent_name+departure_date+from+to+from_name+to_name);
 					
 					//before showing schedule-details page, fill it in with the details
 					//doesn't work if you don't use onpagebeforeshow
 					$(document).on('pagebeforeshow', "#schedule-details",function(){
-					
-					//var parameters = $(this).data("url").split("?")[1];;
-					//parameter = parameters.replace("parameter=","");  
-					//alert(parameters);
-			
 						$('#town-from').html(from_name);		
 						$('#town-to').html(to_name);
 						$('#bus-seats').html(bus_seats+ " seater");		
