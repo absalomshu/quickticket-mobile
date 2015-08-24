@@ -124,7 +124,7 @@ $(document).on('click',"#search", function(){
 
 //Depending on the schedule selected, load the schedule details page
 function select_schedule(schedule_id){
-	
+	$.mobile.loading("show"); //show the ajax spinner
 	//select all items in the form, serialize and send in the url to the schedule details page
 	$.mobile.changePage( "schedule-details.html?"+$("form#search-results-form-"+schedule_id).serialize(), {	});
 	

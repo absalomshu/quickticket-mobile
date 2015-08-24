@@ -18,6 +18,7 @@ $(document).on('pagebeforeshow', "#schedule-details",function () {
 	//for some reason, this value changes many times before eventually picking the right value. Hence use the next 2 lines to ensure
 	if(schedule.vip=='1'){$('#vip').html("VIP");	}
 	if(schedule.vip=='0'){$('#vip').html(" ");	}
+	$.mobile.loading("hide"); //show the ajax spinner
 	
 });
 
